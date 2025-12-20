@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Mitra Support</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;500;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #050505;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+
+        .premium-card {
+            background: linear-gradient(145deg, #111111, #000000);
+            width: 380px;
+            padding: 45px 30px;
+            border-radius: 45px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            text-align: center;
+            box-shadow: 0 0 60px rgba(212, 175, 55, 0.1);
+            position: relative;
+        }
+
+        .header-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: #d4af37;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .caption {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-bottom: 30px;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .qr-frame {
+            background: #fff;
+            padding: 12px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 35px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+        }
+
+        /* Direct App Buttons */
+        .pay-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .app-btn {
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: #eee;
+            padding: 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.4s all ease;
+            display: block;
+        }
+
+        .app-btn:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+            color: #d4af37;
+            transform: translateY(-3px);
+        }
+
+        .verify-btn {
+            background: linear-gradient(90deg, #d4af37, #f9e29c);
+            color: #000;
+            border: none;
+            padding: 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Success Layer */
+        #success-layer {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .check-gold {
+            font-size: 4rem;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="premium-card">
+    <div id="payment-box">
+        <div class="header-title">MITRA Support</div>
+        <p class="caption">Your friendship and support empower<br>our shared vision.</p>
+        
+        <div class="qr-frame">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi://pay?pa=adityarcb18@fam%26pn=MITRA%20Support%26cu=INR" width="180" alt="Support QR">
+        </div>
+
+        <div class="pay-options">
+            <a href="upi://pay?pa=adityarcb18@fam&pn=MITRA_Support&cu=INR" class="app-btn">OPEN PAYMENT APPS</a>
+            <a href="upi://pay?pa=adityarcb18@fam&pn=MITRA_Support&cu=INR" class="app-btn">GOOGLE PAY / PHONEPE</a>
+        </div>
+
+        <button class="verify-btn" onclick="process()">I HAVE SUPPORTED</button>
+    </div>
+
+    <div id="success-layer">
+        <div class="check-gold">✦</div>
+        <h2 style="color: #d4af37; letter-spacing: 2px;">GRATITUDE</h2>
+        <p style="color: #888; font-size: 0.9rem; margin-top: 10px;">Thank you for being a true MITRA.</p>
+        <p style="color: #333; font-size: 0.7rem; margin-top: 30px;">AUTH REF: #MT-1082</p>
+    </div>
+</div>
+
+<script>
+    function process() {
+        const btn = document.querySelector('.verify-btn');
+        btn.innerText = "VERIFYING...";
+        btn.style.opacity = "0.7";
+        
+        setTimeout(() => {
+            document.getElementById('payment-box').style.display = 'none';
+            document.getElementById('success-layer').style.display = 'flex';
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>
